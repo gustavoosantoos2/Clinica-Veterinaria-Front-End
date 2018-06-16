@@ -14,8 +14,6 @@ export class FormularioAnimaisComponent implements OnInit {
   novoAnimal: Animal;
   especies: Especie[];
 
-  animais: Animal[] = [];
-
   formAnimais: FormGroup;
 
   @Output()

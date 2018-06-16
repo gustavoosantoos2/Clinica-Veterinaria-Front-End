@@ -1,7 +1,9 @@
 import { TipoAnimal } from 'src/app/model/tipo-animal.model';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
+const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +20,7 @@ export class TipoAnimalService {
   }
 
   public saveTipoAnimal(tipo: TipoAnimal): Observable<any> {
-    return this.http.post(this.baseUrl, JSON.stringify(tipo));
+    return this.http.post(this.baseUrl, JSON.stringify(tipo), {headers: headers});
   }
 
   public deleteTipoAnimal(tipo: TipoAnimal): Observable<any> {

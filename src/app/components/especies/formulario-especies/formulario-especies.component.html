@@ -1,3 +1,47 @@
-<p>
-  formulario-especies works!
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="text-center mt-4">Formulário</h2>
+
+    <form [formGroup]="formEspecies" (ngSubmit)="adicionarEspecie()">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Nome</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" [class.is-invalid]="formEspecies.controls['nome'].touched && formEspecies.controls['nome'].invalid"
+            formControlName="nome">
+          <div class="invalid-feedback">
+            Nome inválido.
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Descrição</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" [class.is-invalid]="formEspecies.controls['descricao'].touched && formEspecies.controls['descricao'].invalid"
+            formControlName="descricao" />
+          <div class="invalid-feedback">
+            Descrição inválida.
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Tipo de animal</label>
+        <div class="col-sm-7">
+          <select type="text" class="form-control" formControlName="tipo" [class.is-invalid]="formEspecies.controls['tipo'].touched && formEspecies.controls['tipo'].invalid">
+            <option *ngFor="let tipoAnimal of tiposAnimais" [ngValue]="tipoAnimal.acronimo">
+              {{tipoAnimal.nome}}
+            </option>
+          </select>
+          <div class="invalid-feedback">
+            Selecione o tipo de animal.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-success btn-block" [disabled]="!formEspecies.valid">SALVAR</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

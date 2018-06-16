@@ -4,12 +4,12 @@ export class Especie {
     id: number;
     nome: string;
     descricao: string;
-    tipo: TipoAnimal;
+    tipoAnimal: TipoAnimal;
 
     constructor(id?: number, nome?: string, descricao?: string, tipo?: TipoAnimal) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
-        this.tipo = tipo;
+        this.tipoAnimal = tipo;
     }
 }

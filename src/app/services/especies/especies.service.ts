@@ -1,7 +1,9 @@
 import { Observable } from 'rxjs';
 import { Especie } from 'src/app/model/especie.model';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +20,7 @@ export class EspeciesService {
   }
 
   public saveEspecie(especie: Especie): Observable<any> {
-    return this.http.post(this.baseUrl, JSON.stringify(especie));
+    return this.http.post(this.baseUrl, JSON.stringify(especie), {headers: headers});
   }
 
   public deleteEspecie(especie: Especie): Observable<any> {
